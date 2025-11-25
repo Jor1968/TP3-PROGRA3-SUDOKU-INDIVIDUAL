@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 
 import model.TableroSudokuModelo;
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class ViewVentanaPrincipal {
 
@@ -26,14 +27,14 @@ public class ViewVentanaPrincipal {
 	/**
 	 * Create the application.
 	 */
-	public ViewVentanaPrincipal(int[][] tablerotemp) {
-		initialize(tablerotemp);
+	public ViewVentanaPrincipal(TableroSudokuModelo t) {
+		initialize(t);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(int[][] tablerotemp) {
+	private void initialize(TableroSudokuModelo t) {
 		frame = new JFrame("Sudoku");
 		frame.setVisible(true);
 		frame.setBounds(100, 100, anchoVentana, altoVentana);
@@ -43,28 +44,35 @@ public class ViewVentanaPrincipal {
 		frame.getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(SystemColor.inactiveCaptionBorder);
+		panel.setBackground(Color.PINK);
 		panel.setBounds(50, 50, 500, 500);
 		frame.getContentPane().add(panel);
-		panel.setLayout(new GridLayout(9, 9, 5, 5));
+		panel.setLayout(new GridLayout(3, 3, 5, 5));
 		
-		
-		TableroSudokuModelo	tablero = new TableroSudokuModelo(tablerotemp);
-		
+
+
 		
 		//int cont = 0;
 		JLabel[][] tableroVisualLabel =  new JLabel[9][9];
 		
 		for(int i = 0; i < 9; i++) {
+			JPanel panel2 = new JPanel();
+			panel2.setBackground(SystemColor.inactiveCaptionBorder);
+			panel2.setBounds(50, 50, 500, 500);
+			panel2.setLayout(new GridLayout(3, 3, 5, 5));
+			
 			for(int j = 0; j < 9; j++) {
-				JLabel lblNewLabel = new JLabel(String.valueOf(tablero.tablero[i][j]));
+				String numeroString = String.valueOf(t.tablero[i][j]);
+				
+				JLabel lblNewLabel = new JLabel(numeroString);
 				lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 				lblNewLabel.setForeground(SystemColor.textHighlight);
 				lblNewLabel.setBackground(SystemColor.info);
 				tableroVisualLabel[i][j] = lblNewLabel;
-				panel.add(lblNewLabel);
+				panel2.add(lblNewLabel);
 				
 			}
+			panel.add(panel2);
 		}
 		
 		//tablero.imprimirTablero();
@@ -76,16 +84,16 @@ public class ViewVentanaPrincipal {
 		JButton resolverButton = new JButton("Resolver");
 		resolverButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(tablero.empezarResolucion());
+				System.out.println(t.empezarResolucion());
 				
 				 for (int filas = 0; filas < tableroVisualLabel.length; filas++) {
 			            for (int columnas = 0; columnas < tableroVisualLabel[filas].length; columnas++) {
-			            	int numeroCasilla = tablero.getTablero()[filas][columnas];
+			            	int numeroCasilla = t.getTablero()[filas][columnas];
 			            	tableroVisualLabel[filas][columnas].setText(String.valueOf(numeroCasilla));
 			            	
 			                }
 			            }
-				 tablero.imprimirTablero();
+				 t.imprimirTablero();
 				
 			}
 		});

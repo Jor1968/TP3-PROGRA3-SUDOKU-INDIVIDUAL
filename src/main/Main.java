@@ -22,7 +22,21 @@ public class Main {
 				{0,0,7,0,4,0,2,0,3}
 		};
 		*/
-		ViewMenu vistaMenu = new ViewMenu();
+		int[][] tableroTemp = {
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0}
+		};
+		
+		TableroSudokuModelo t = new TableroSudokuModelo(tableroTemp);
+		
+		ViewMenu vistaMenu = new ViewMenu(t);
 		vistaMenu.mostrar();
 		
 		

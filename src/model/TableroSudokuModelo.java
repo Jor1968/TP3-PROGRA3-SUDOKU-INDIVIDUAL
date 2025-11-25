@@ -1,24 +1,19 @@
 package model;
-import java.awt.SystemColor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-import java.util.random.*;
-
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 public class TableroSudokuModelo {
 	public int[][] tablero =  new int[9][9];
-
-
 	private List<Integer> numeros = new ArrayList<Integer>();
+
+
+	//private List<Integer> numeros = new ArrayList<Integer>();
 	/*
 	public TableroSudokuModelo() {
 		numeros.addAll(Arrays.asList(1, 2, 3, 4, 5 , 6 , 7 , 8 , 9));
 		//numeros.addAll(Arrays.asList(1, 2, 2, 2, 2 , 2 , 2 , 2 , 2));
-		//Random r= new Random();
 		Collections.shuffle(numeros);
 		 for (int filas = 0; filas < tablero.length; filas++) {
 			 Collections.shuffle(numeros);
@@ -175,17 +170,57 @@ public class TableroSudokuModelo {
 		
 	}
 	
+	public boolean tableroRandom(int num) {
+		return crearValoresAleatorios(this.tablero, num);
+		
+	}
+
 	
-	public boolean resolver2() {
+	public boolean crearValoresAleatorios(int[][] tablero, int cantidadDeIntentos) {
+		numeros.addAll(Arrays.asList(1, 2, 3, 4, 5 , 6 , 7 , 8 , 9));
+		Collections.shuffle(numeros);
+		
+		Random ElegirCasilla = new Random();
 		
 		for(int fila = 0; fila < this.tablero.length; fila++) {
 			for(int columna = 0; columna <  this.tablero[fila].length; columna++) {
+				if(cantidadDeIntentos == 0) {
+					return true;
+				}
+				ElegirCasilla.nextInt(2);
 				
-				tablero[fila][columna] = 5;
+				if(tablero[fila][columna] == 0 && ElegirCasilla.nextInt(2) == 0) {
+					int cont = 0;
+					int numeroCandidato = numeros.get(cont);
+					boolean SeEncontroNumero = false;
+					
+					while(SeEncontroNumero == false) {
+						if(verificarSiEsPosicionValida(fila,columna,numeroCandidato) && !(tablero[fila][columna] == numeroCandidato)) {
+							tablero[fila][columna] = numeroCandidato;
+							SeEncontroNumero = true;
+					
+						}
+						cont++;
+						numeroCandidato = numeros.get(cont);
+						
+					}
+
+						
+				}
+				cantidadDeIntentos--;
+
 			}
+			
 		}
-		return true;
+			
+
+		return true;	
 	}
+	/*
+	else if(numeroCandidato == 9){
+		  System.out.print(fila + ":" + columna + "No es solucion valida");	
+		}
+		*/
 	
 	
 	
