@@ -79,7 +79,7 @@ public class TableroSudokuModelo {
 	}
 	
 	public boolean verificarNumeroEnFila_Columna(int fila, int columna, int numero) {
-		return verificarNumeroEnFila(fila,numero) || verificarNumeroEnColumna(columna,numero);
+		return verificarNumeroEnFila(fila,numero) && verificarNumeroEnColumna(columna,numero);
 	}
 	
 	public boolean verificarNumeroEncaja3x3(int fila, int columna, int numero) {
@@ -143,7 +143,19 @@ public class TableroSudokuModelo {
 		for(int fila = 0; fila < this.tablero.length; fila++) {
 			for(int columna = 0; columna <  this.tablero[fila].length; columna++) {
 				
-				if(tablero[fila][columna] == 0) {
+				if(tablero[fila][columna] != 0) {
+					int num_aux = tablero[fila][columna];
+					tablero[fila][columna] = 0;
+					
+					if(verificarSiEsPosicionValida(fila,columna,num_aux) == false) {
+					System.out.println("NO TIENE SOLUCION");
+					tablero[fila][columna] = num_aux;
+					return false;
+					}
+					tablero[fila][columna] = num_aux;
+				}
+				else {
+				//if(tablero[fila][columna] == 0) {
 					for(int numeroCandidato = 1; numeroCandidato <= this.tablero.length; numeroCandidato++ ) {
 						if(verificarSiEsPosicionValida(fila,columna,numeroCandidato)) {
 							tablero[fila][columna] = numeroCandidato;
