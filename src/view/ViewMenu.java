@@ -2,6 +2,7 @@ package view;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.SystemColor;
 
@@ -50,19 +51,18 @@ public class ViewMenu {
 		Collections.shuffle(numeros);
 		
 		frame = new JFrame("Sudoku");
+		frame.getContentPane().setBackground(new Color(191, 197, 186));
 		frame.setVisible(false);
 		frame.setBounds(100, 100, anchoVentana, altoVentana);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setLayout(null);
+		
+		
+		JTextField[][] tableroVisual =  new JTextField[9][9];
+
 		/*
-		JPanel panel = new JPanel();
-		panel.setBackground(SystemColor.inactiveCaptionBorder);
-		panel.setBounds(50, 50, 500, 500);
-		frame.getContentPane().add(panel);
-		panel.setLayout(new GridLayout(9, 9, 5, 5));
-*/
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.PINK);
 		panel.setBounds(50, 50, 500, 500);
@@ -70,10 +70,6 @@ public class ViewMenu {
 		panel.setLayout(new GridLayout(3, 3, 5, 5));
 		
 
-
-		
-		//int cont = 0;
-		JTextField[][] tableroVisual =  new JTextField[9][9];
 		
 		for(int i = 0; i < 9; i++) {
 			JPanel panel2 = new JPanel();
@@ -97,13 +93,17 @@ public class ViewMenu {
 		
 		
 		
+*/
+		
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(SystemColor.inactiveCaptionBorder);
+		panel.setBounds(50, 50, 500, 500);
+		frame.getContentPane().add(panel);
+		panel.setLayout(new GridLayout(9, 9, 5, 5));
 
 		
 		
-		
-		
-		
-		/*
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
 				String numeroString = String.valueOf(t.tablero[i][j]);
@@ -112,13 +112,14 @@ public class ViewMenu {
 				textField.setHorizontalAlignment(SwingConstants.CENTER);
 				textField.setForeground(SystemColor.textHighlight);
 				textField.setBackground(SystemColor.info);
+				textField.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				tableroVisual[i][j] = textField;
 				panel.add(textField);
 			
 				
 			}
 		}
-		*/
+
 		
 		CantDeRandoms = new JTextField();
 		CantDeRandoms.setBounds(266, 561, 86, 20);

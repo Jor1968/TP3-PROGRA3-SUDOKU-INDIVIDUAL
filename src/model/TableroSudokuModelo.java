@@ -8,26 +8,6 @@ public class TableroSudokuModelo {
 	public int[][] tablero =  new int[9][9];
 	private List<Integer> numeros = new ArrayList<Integer>();
 
-
-	//private List<Integer> numeros = new ArrayList<Integer>();
-	/*
-	public TableroSudokuModelo() {
-		numeros.addAll(Arrays.asList(1, 2, 3, 4, 5 , 6 , 7 , 8 , 9));
-		//numeros.addAll(Arrays.asList(1, 2, 2, 2, 2 , 2 , 2 , 2 , 2));
-		Collections.shuffle(numeros);
-		 for (int filas = 0; filas < tablero.length; filas++) {
-			 Collections.shuffle(numeros);
-			 System.out.println(numeros);
-	            for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
-	            	//tablero[filas][columnas] = r.nextInt(10);
-	            	tablero[filas][columnas] = numeros.get(columnas);
-	            	
-	                }
-	            }
-		
-		
-	}
-	*/
 	public TableroSudokuModelo(int[][] tablerotemp) {
 		 for (int filas = 0; filas < tablero.length; filas++) {
 			// System.out.println(numeros);
@@ -77,10 +57,7 @@ public class TableroSudokuModelo {
 	            }
 	        return false;
 	}
-	
-	public boolean verificarNumeroEnFila_Columna(int fila, int columna, int numero) {
-		return verificarNumeroEnFila(fila,numero) && verificarNumeroEnColumna(columna,numero);
-	}
+
 	
 	public boolean verificarNumeroEncaja3x3(int fila, int columna, int numero) {
 		int primeraCasillaFila = fila - fila % 3;
@@ -106,24 +83,7 @@ public class TableroSudokuModelo {
 			   !verificarNumeroEnColumna(columna,numero);
 	}
 	
-	
-	
-	
 
-		
-	
-/*
-	public boolean recorrer() {
-		
-		
-		 for (int filas = 0; filas < tablero.length; filas++) {
-	            for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
-	            	
-	                }
-	            }
-	        return true;
-	}
-	*/
 	
 	public void setTablero(int fila,int columna,int numero) {
 		this.tablero[fila][columna] = numero;
@@ -148,7 +108,7 @@ public class TableroSudokuModelo {
 					tablero[fila][columna] = 0;
 					
 					if(verificarSiEsPosicionValida(fila,columna,num_aux) == false) {
-					System.out.println("NO TIENE SOLUCION");
+					//System.out.println("NO TIENE SOLUCION");
 					tablero[fila][columna] = num_aux;
 					return false;
 					}
@@ -234,6 +194,18 @@ public class TableroSudokuModelo {
 		}
 		*/
 	
+	
+	
+/*
+	public boolean recorrer() {
+		 for (int filas = 0; filas < tablero.length; filas++) {
+	            for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
+	            	
+	                }
+	            }
+	        return true;
+	}
+	*/
 	
 	
 }

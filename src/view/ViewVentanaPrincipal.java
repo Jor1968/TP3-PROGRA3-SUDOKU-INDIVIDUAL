@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -36,6 +37,7 @@ public class ViewVentanaPrincipal {
 	 */
 	private void initialize(TableroSudokuModelo t) {
 		frame = new JFrame("Sudoku");
+		frame.getContentPane().setBackground(SystemColor.inactiveCaption);
 		frame.setVisible(true);
 		frame.setBounds(100, 100, anchoVentana, altoVentana);
 		frame.setResizable(false);
@@ -43,18 +45,34 @@ public class ViewVentanaPrincipal {
 		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setLayout(null);
 		
+		
+		JPanel panelMensaje = new JPanel();
+		panelMensaje.setBackground(SystemColor.activeCaption);
+		panelMensaje.setBounds(50, 563, 500, 69);
+		frame.getContentPane().add(panelMensaje);
+		
+		JLabel mensajeSolucion = new JLabel("??????");
+		panelMensaje.add(mensajeSolucion);
+		mensajeSolucion.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		mensajeSolucion.setForeground(SystemColor.window);
+		mensajeSolucion.setBackground(SystemColor.info);
+		
+		
+		
+		
+		
+		
+		JLabel[][] tableroVisualLabel =  new JLabel[9][9];
+		
+		/*
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.PINK);
 		panel.setBounds(50, 50, 500, 500);
 		frame.getContentPane().add(panel);
 		panel.setLayout(new GridLayout(3, 3, 5, 5));
+		*/
 		
-
-
-		
-		//int cont = 0;
-		JLabel[][] tableroVisualLabel =  new JLabel[9][9];
-		
+		/*
 		for(int i = 0; i < 9; i++) {
 			JPanel panel2 = new JPanel();
 			panel2.setBackground(SystemColor.inactiveCaptionBorder);
@@ -74,17 +92,49 @@ public class ViewVentanaPrincipal {
 			}
 			panel.add(panel2);
 		}
+		*/
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.PINK);
+		panel.setBounds(50, 50, 500, 500);
+		frame.getContentPane().add(panel);
+		panel.setLayout(new GridLayout(9, 9, 5, 5));
+		
+		
+		
+		for(int i = 0; i < 9; i++) {
+			for(int j = 0; j < 9; j++) {
+				JPanel separador = new JPanel();
+				separador.setBackground(SystemColor.info);
+				
+				String numeroString = String.valueOf(t.tablero[i][j]);
+				
+				JLabel lblNewLabel = new JLabel(numeroString);
+				lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+				lblNewLabel.setForeground(SystemColor.textHighlight);
+				lblNewLabel.setBackground(SystemColor.info);
+				lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+				tableroVisualLabel[i][j] = lblNewLabel;
+				separador.add(lblNewLabel);
+				
+				panel.add(separador);
+				
+			}
+		}
 		
 		//tablero.imprimirTablero();
-		
-		//System.out.println(tablero.verificarNumeroEnFila_Columna(0,0, 3));
-		//System.out.println(tablero.verificarNumeroEncaja3x3(0,0, 3));
-		//System.out.println(tablero.verificarSiEsPosicionValida(0,0, 5));
-		
+
 		JButton resolverButton = new JButton("Resolver");
 		resolverButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(t.empezarResolucion());
+				if(t.empezarResolucion()) {
+					System.out.println("SE ENCONTRO UNA SOLUCION");
+					mensajeSolucion.setText("SE ENCONTRO UNA SOLUCION ✓");
+				}
+				else {
+					System.out.println("NO SE ENCONTRO UNA SOLUCION");
+					mensajeSolucion.setText("SE ENCONTRO UNA SOLUCION X");
+				}
 				
 				 for (int filas = 0; filas < tableroVisualLabel.length; filas++) {
 			            for (int columnas = 0; columnas < tableroVisualLabel[filas].length; columnas++) {
@@ -99,6 +149,8 @@ public class ViewVentanaPrincipal {
 		});
 		resolverButton.setBounds(566, 290, 89, 23);
 		frame.getContentPane().add(resolverButton);
+		
+
 		
 
 	}
