@@ -162,18 +162,12 @@ public class TableroSudokuModelo {
 				ElegirCasilla.nextInt(2);
 				
 				if(tablero[fila][columna] == 0 && ElegirCasilla.nextInt(2) == 0) {
-					int cont = 0;
-					int numeroCandidato = numeros.get(cont);
-					boolean SeEncontroNumero = false;
-					
-					while(SeEncontroNumero == false) {
+					for(Integer numeroCandidato : numeros) {
 						if(verificarSiEsPosicionValida(fila,columna,numeroCandidato) && !(tablero[fila][columna] == numeroCandidato)) {
 							tablero[fila][columna] = numeroCandidato;
-							SeEncontroNumero = true;
+							break;
 					
 						}
-						cont++;
-						numeroCandidato = numeros.get(cont);
 						
 					}
 

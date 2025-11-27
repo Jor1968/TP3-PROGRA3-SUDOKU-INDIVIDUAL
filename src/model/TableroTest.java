@@ -47,5 +47,70 @@ class TableroTest {
 		
 		assertTrue(estaEnFila);
 	}
+	
+	
+	
+	@Test
+	void numeroEncaja3x3() {
+		int[][] tableroTemp = {
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,1,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0}
+		};
+		
+		TableroSudokuModelo t = new TableroSudokuModelo(tableroTemp);
+		
+		boolean estaEnCaja = t.verificarNumeroEncaja3x3(0, 0, 1);
+		
+		assertTrue(estaEnCaja);
+	}
+	
+	@Test
+	void resolverDevuelveFalseConRepetidos() {
+		int[][] tableroTemp = {
+				{0,1,0,0,0,0,0,0,1},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0}
+		};
+		
+		TableroSudokuModelo t = new TableroSudokuModelo(tableroTemp);
+		
+		boolean sinRepetidos = t.empezarResolucion();
+		
+		assertFalse(sinRepetidos);
+	}
+	
+	@Test
+	void resolverDevuelveTrueSinRepetidos() {
+		int[][] tableroTemp = {
+				{0,1,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0},
+				{0,0,0,0,0,0,0,0,0}
+		};
+		
+		TableroSudokuModelo t = new TableroSudokuModelo(tableroTemp);
+		
+		boolean sinRepetidos = t.empezarResolucion();
+		
+		assertTrue(sinRepetidos);
+	}
 
 }

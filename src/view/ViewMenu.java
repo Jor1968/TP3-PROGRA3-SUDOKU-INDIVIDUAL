@@ -14,6 +14,7 @@ import javax.swing.SwingConstants;
 import model.TableroSudokuModelo;
 
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -58,6 +59,35 @@ public class ViewMenu {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon(ViewVentanaPrincipal.class.getResource("/Imagenes/NEGRO.jpg")));
+		lblNewLabel_1.setForeground(SystemColor.desktop);
+		lblNewLabel_1.setBackground(SystemColor.desktop);
+		lblNewLabel_1.setBounds(214, 50, 3, 500);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("New label");
+		lblNewLabel_1_1.setIcon(new ImageIcon(ViewVentanaPrincipal.class.getResource("/Imagenes/NEGRO.jpg")));
+		lblNewLabel_1_1.setForeground(SystemColor.desktop);
+		lblNewLabel_1_1.setBackground(SystemColor.desktop);
+		lblNewLabel_1_1.setBounds(382, 50, 3, 500);
+		frame.getContentPane().add(lblNewLabel_1_1);
+		
+		JLabel lblNewLabel_1_2 = new JLabel("New label");
+		lblNewLabel_1_2.setIcon(new ImageIcon(ViewVentanaPrincipal.class.getResource("/Imagenes/NEGRO.jpg")));
+		lblNewLabel_1_2.setForeground(SystemColor.desktop);
+		lblNewLabel_1_2.setBackground(SystemColor.desktop);
+		lblNewLabel_1_2.setBounds(50, 214, 500, 3);
+		frame.getContentPane().add(lblNewLabel_1_2);
+		
+		JLabel lblNewLabel_1_2_1 = new JLabel("New label");
+		lblNewLabel_1_2_1.setIcon(new ImageIcon(ViewVentanaPrincipal.class.getResource("/Imagenes/NEGRO.jpg")));
+		lblNewLabel_1_2_1.setForeground(SystemColor.desktop);
+		lblNewLabel_1_2_1.setBackground(SystemColor.desktop);
+		lblNewLabel_1_2_1.setBounds(50, 382, 500, 3);
+		frame.getContentPane().add(lblNewLabel_1_2_1);
+		
 		
 		
 		JTextField[][] tableroVisual =  new JTextField[9][9];
