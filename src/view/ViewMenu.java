@@ -174,44 +174,45 @@ public class ViewMenu {
 		frame.getContentPane().add(randomValuesButton);
 		
 		
-		/*
+		
 		JButton testValueButton = new JButton("Valores Testeo");
 		testValueButton.setBounds(416, 588, 113, 23);
 		testValueButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int[][] tableroTemp = {
-						{7,0,2,0,5,0,6,0,0},
-						{0,0,0,0,0,3,0,0,0},
-						{1,0,0,0,0,9,5,0,0},
-						{8,0,0,0,0,0,0,9,0},
-						{0,4,3,0,0,0,7,5,0},
-						{0,9,0,0,0,0,0,0,8},
-						{0,0,9,7,0,0,0,0,5},
-						{0,0,0,2,0,0,0,0,0},
-						{0,0,7,0,4,0,2,0,3}
-				};
-				
-				
-				for(int i = 0; i < 9; i++) {
-					for(int j = 0; j < 9; j++) {
-						t.tablero[i][j] = tableroTemp[i][j];
-						tableroVisual[i][j].setText(String.valueOf(tableroTemp[i][j]) );
+				actualizarTablero(tableroVisual);
+                t.ponerValoresTesteo();
+				actualizarVista(tableroVisual);
 
-					
-						
-					}
-				}
 				
 			}
 		});
 		frame.getContentPane().add(testValueButton);
-		*/
+		
+		
+		JButton limpiar = new JButton("Limpiar Celdas");
+		limpiar.setBounds(416, 560, 113, 23);
+		limpiar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				actualizarTablero(tableroVisual);
+                t.limpiarTablero();
+				actualizarVista(tableroVisual);
+						
+					
+				
+				
+			}
+		});
+		frame.getContentPane().add(limpiar);
+		
+		
+		
 		
 		JButton openMainViewButton = new JButton("Empezar");
 		openMainViewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				actualizarTablero(tableroVisual);
-				ViewVentanaPrincipal i = new ViewVentanaPrincipal(t);
+				ViewVentanaPrincipal ventanaPrincipal = new ViewVentanaPrincipal(t);
+				frame.dispose();
 				
 			}
 		});

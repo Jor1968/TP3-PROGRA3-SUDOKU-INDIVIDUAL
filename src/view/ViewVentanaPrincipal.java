@@ -180,9 +180,21 @@ public class ViewVentanaPrincipal {
 		resolverButton.setBounds(566, 290, 89, 23);
 		frame.getContentPane().add(resolverButton);
 		
-
+		JButton volverAlMenu = new JButton("Volver al Menu");
+		volverAlMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ViewMenu menu = new ViewMenu(t);
+				menu.mostrar();
+				frame.dispose();
+				
+			}
+			});
+		volverAlMenu.setBounds(566, 324, 108, 23);
+		frame.getContentPane().add(volverAlMenu);
 		
 
+		
+		
 		
 
 		
