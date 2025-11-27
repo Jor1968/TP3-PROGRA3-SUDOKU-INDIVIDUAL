@@ -1,7 +1,7 @@
 package view;
 
 import java.awt.Color;
-import java.awt.EventQueue;
+
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.SystemColor;
@@ -22,6 +22,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.awt.event.ActionEvent;
+import javax.swing.UIManager;
 
 public class ViewMenu {
 	
@@ -60,71 +61,37 @@ public class ViewMenu {
 		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon(ViewVentanaPrincipal.class.getResource("/Imagenes/NEGRO.jpg")));
-		lblNewLabel_1.setForeground(SystemColor.desktop);
-		lblNewLabel_1.setBackground(SystemColor.desktop);
-		lblNewLabel_1.setBounds(214, 50, 3, 500);
-		frame.getContentPane().add(lblNewLabel_1);
+		JLabel SeparadorVertical1 = new JLabel("New label");
+		SeparadorVertical1.setIcon(new ImageIcon(ViewVentanaPrincipal.class.getResource("/Imagenes/NEGRO.jpg")));
+		SeparadorVertical1.setForeground(SystemColor.desktop);
+		SeparadorVertical1.setBackground(SystemColor.desktop);
+		SeparadorVertical1.setBounds(214, 50, 3, 500);
+		frame.getContentPane().add(SeparadorVertical1);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("New label");
-		lblNewLabel_1_1.setIcon(new ImageIcon(ViewVentanaPrincipal.class.getResource("/Imagenes/NEGRO.jpg")));
-		lblNewLabel_1_1.setForeground(SystemColor.desktop);
-		lblNewLabel_1_1.setBackground(SystemColor.desktop);
-		lblNewLabel_1_1.setBounds(382, 50, 3, 500);
-		frame.getContentPane().add(lblNewLabel_1_1);
+		JLabel SeparadorVertical2 = new JLabel("New label");
+		SeparadorVertical2.setIcon(new ImageIcon(ViewVentanaPrincipal.class.getResource("/Imagenes/NEGRO.jpg")));
+		SeparadorVertical2.setForeground(SystemColor.desktop);
+		SeparadorVertical2.setBackground(SystemColor.desktop);
+		SeparadorVertical2.setBounds(382, 50, 3, 500);
+		frame.getContentPane().add(SeparadorVertical2);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("New label");
-		lblNewLabel_1_2.setIcon(new ImageIcon(ViewVentanaPrincipal.class.getResource("/Imagenes/NEGRO.jpg")));
-		lblNewLabel_1_2.setForeground(SystemColor.desktop);
-		lblNewLabel_1_2.setBackground(SystemColor.desktop);
-		lblNewLabel_1_2.setBounds(50, 214, 500, 3);
-		frame.getContentPane().add(lblNewLabel_1_2);
+		JLabel SeparadorHorizontal1 = new JLabel("New label");
+		SeparadorHorizontal1.setIcon(new ImageIcon(ViewVentanaPrincipal.class.getResource("/Imagenes/NEGRO.jpg")));
+		SeparadorHorizontal1.setForeground(SystemColor.desktop);
+		SeparadorHorizontal1.setBackground(SystemColor.desktop);
+		SeparadorHorizontal1.setBounds(50, 214, 500, 3);
+		frame.getContentPane().add(SeparadorHorizontal1);
 		
-		JLabel lblNewLabel_1_2_1 = new JLabel("New label");
-		lblNewLabel_1_2_1.setIcon(new ImageIcon(ViewVentanaPrincipal.class.getResource("/Imagenes/NEGRO.jpg")));
-		lblNewLabel_1_2_1.setForeground(SystemColor.desktop);
-		lblNewLabel_1_2_1.setBackground(SystemColor.desktop);
-		lblNewLabel_1_2_1.setBounds(50, 382, 500, 3);
-		frame.getContentPane().add(lblNewLabel_1_2_1);
+		JLabel SeparadorHorizontal2 = new JLabel("New label");
+		SeparadorHorizontal2.setIcon(new ImageIcon(ViewVentanaPrincipal.class.getResource("/Imagenes/NEGRO.jpg")));
+		SeparadorHorizontal2.setForeground(SystemColor.desktop);
+		SeparadorHorizontal2.setBackground(SystemColor.desktop);
+		SeparadorHorizontal2.setBounds(50, 382, 500, 3);
+		frame.getContentPane().add(SeparadorHorizontal2);
 		
 		
 		
 		JTextField[][] tableroVisual =  new JTextField[9][9];
-
-		/*
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.PINK);
-		panel.setBounds(50, 50, 500, 500);
-		frame.getContentPane().add(panel);
-		panel.setLayout(new GridLayout(3, 3, 5, 5));
-		
-
-		
-		for(int i = 0; i < 9; i++) {
-			JPanel panel2 = new JPanel();
-			panel2.setBackground(SystemColor.inactiveCaptionBorder);
-			panel2.setBounds(50, 50, 500, 500);
-			panel2.setLayout(new GridLayout(3, 3, 5, 5));
-			
-			for(int j = 0; j < 9; j++) {
-				String numeroString = String.valueOf(t.tablero[i][j]);
-				textField = new JTextField(numeroString);
-				textField.setColumns(10);
-				textField.setHorizontalAlignment(SwingConstants.CENTER);
-				textField.setForeground(SystemColor.textHighlight);
-				textField.setBackground(SystemColor.info);
-				tableroVisual[i][j] = textField;
-				panel2.add(textField);
-				
-			}
-			panel.add(panel2);
-		}
-		
-		
-		
-*/
-		
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(SystemColor.inactiveCaptionBorder);
@@ -218,27 +185,24 @@ public class ViewMenu {
 		});
 		openMainViewButton.setBounds(106, 588, 89, 23);
 		frame.getContentPane().add(openMainViewButton);
+		
+		JLabel titulo = new JLabel("SUDOKU SOLVER 2005");
+		titulo.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 16));
+		titulo.setForeground(new Color(255, 0, 0));
+		titulo.setBackground(new Color(240, 240, 240));
+		titulo.setBounds(50, 11, 500, 29);
+		frame.getContentPane().add(titulo);
+		
+		JLabel lblAsignarValoresDe = new JLabel("Asigne valores de 1 al 9 a los casilleros, y despues cliquee resolver.");
+		lblAsignarValoresDe.setForeground(Color.RED);
+		lblAsignarValoresDe.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 13));
+		lblAsignarValoresDe.setBackground(UIManager.getColor("Button.background"));
+		lblAsignarValoresDe.setBounds(288, 12, 396, 29);
+		frame.getContentPane().add(lblAsignarValoresDe);
 
 		
 	}
-	/*
-	public int[][] sacarValorTableroTexto(JTextField[][] tab){
-		int[][] tableroTemp = new int[9][9];
-		
-			 for (int fila = 0; fila < tab.length; fila++) {
-				 for (int column = 0; column < tab[fila].length; column++) {
-					 String numtext = tab[fila][column].getText();
-					 tableroTemp[fila][column] = Integer.valueOf(numtext);
-		            		
-		            	}
-		            
-		            }
 
-		
-		return tableroTemp;
-		
-	}
-	*/
 	
 	public void mostrar() {
 		this.frame.setVisible(true);
@@ -269,10 +233,4 @@ public class ViewMenu {
 			}
 		}
 	}
-	
-	
-	
-	
-	
-	
 }

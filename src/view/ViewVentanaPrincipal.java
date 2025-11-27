@@ -1,11 +1,11 @@
 package view;
 
-import java.awt.EventQueue;
+
 import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+
 
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
@@ -94,35 +94,6 @@ public class ViewVentanaPrincipal {
 		
 		JLabel[][] tableroVisualLabel =  new JLabel[9][9];
 		
-		/*
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.PINK);
-		panel.setBounds(50, 50, 500, 500);
-		frame.getContentPane().add(panel);
-		panel.setLayout(new GridLayout(3, 3, 5, 5));
-		*/
-		
-		/*
-		for(int i = 0; i < 9; i++) {
-			JPanel panel2 = new JPanel();
-			panel2.setBackground(SystemColor.inactiveCaptionBorder);
-			panel2.setBounds(50, 50, 500, 500);
-			panel2.setLayout(new GridLayout(3, 3, 5, 5));
-			
-			for(int j = 0; j < 9; j++) {
-				String numeroString = String.valueOf(t.tablero[i][j]);
-				
-				JLabel lblNewLabel = new JLabel(numeroString);
-				lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-				lblNewLabel.setForeground(SystemColor.textHighlight);
-				lblNewLabel.setBackground(SystemColor.info);
-				tableroVisualLabel[i][j] = lblNewLabel;
-				panel2.add(lblNewLabel);
-				
-			}
-			panel.add(panel2);
-		}
-		*/
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.PINK);
