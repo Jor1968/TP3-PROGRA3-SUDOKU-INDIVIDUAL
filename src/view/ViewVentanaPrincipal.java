@@ -88,7 +88,25 @@ public class ViewVentanaPrincipal {
 		mensajeSolucion.setBackground(SystemColor.info);
 		
 		
+		JLabel michi = new JLabel("michi");
+		michi.setIcon(new ImageIcon(ViewVentanaPrincipal.class.getResource("/Imagenes/GATTU2.jpg")));
+		michi.setBounds(566, 536, 89, 96);
+		frame.getContentPane().add(michi);
+		michi.setVisible(false);
 		
+		
+		JLabel disco = new JLabel("disco");
+		disco.setIcon(new ImageIcon(ViewVentanaPrincipal.class.getResource("/Imagenes/DISCO.gif")));
+		disco.setBounds(474, 484, 200, 200);
+		frame.getContentPane().add(disco);
+		disco.setVisible(false);
+		
+		JLabel titulo = new JLabel("SUDOKU SOLVER 2005");
+		titulo.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 16));
+		titulo.setForeground(new Color(255, 0, 0));
+		titulo.setBackground(new Color(240, 240, 240));
+		titulo.setBounds(50, 11, 500, 29);
+		frame.getContentPane().add(titulo);
 		
 		
 		
@@ -131,10 +149,16 @@ public class ViewVentanaPrincipal {
 				if(t.empezarResolucion()) {
 					System.out.println("SE ENCONTRO UNA SOLUCION");
 					mensajeSolucion.setText("SE ENCONTRO UNA SOLUCION ✓");
+					mensajeSolucion.setForeground(Color.green);
+					disco.setVisible(true);
 				}
 				else {
 					System.out.println("NO SE ENCONTRO UNA SOLUCION");
 					mensajeSolucion.setText("NO SE ENCONTRO UNA SOLUCION X");
+					mensajeSolucion.setForeground(Color.red);
+					michi.setVisible(true);
+					
+					
 				}
 				
 				 for (int filas = 0; filas < tableroVisualLabel.length; filas++) {
@@ -162,10 +186,6 @@ public class ViewVentanaPrincipal {
 			});
 		volverAlMenu.setBounds(566, 324, 108, 23);
 		frame.getContentPane().add(volverAlMenu);
-		
-
-		
-		
 		
 
 		
